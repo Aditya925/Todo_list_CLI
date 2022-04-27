@@ -9,7 +9,9 @@ fn main(){
         action,
         journal_file,
     } = CommandLineArgs::from_args();
+
     let journal_file = journal_file.expect("Failed to find file");
+    
     match action{
         Add{text} => tasks::add_task(journal_file, Task::new(text)),
         List => tasks::list_tasks(journal_file),
